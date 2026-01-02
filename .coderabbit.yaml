@@ -1,0 +1,46 @@
+# CodeRabbit Configuration for FC2X Project
+# See: https://docs.coderabbit.ai/configure/configuration-via-yaml-file/
+# Best practice: Version-controlled configuration in repository root
+
+reviews:
+  path_instructions:
+    - path: "src/app/api/auth/route.ts"
+      instructions: |
+        Verify OAuth 2.0 PKCE flow implementation: code verifier generation, challenge computation (SHA256 hash), secure token storage, proper state parameter handling, and correct authorization URL construction. Check for proper error handling and logging.
+        
+        Focus areas:
+        - Security: Proper PKCE implementation (code verifier/challenge)
+        - Error handling: Comprehensive error handling in authentication flows
+        - TypeScript: Type safety, proper typing, avoiding any types
+        - Next.js: Proper use of Next.js API routes and best practices
+    
+    - path: "src/app/api/callback/route.ts"
+      instructions: |
+        Validate token exchange security: code verification, state parameter validation, secure token storage, error handling for invalid authorization codes, and proper database query parameterization to prevent SQL injection.
+        
+        Focus areas:
+        - Security: Secure token storage and handling, SQL injection prevention
+        - Error handling: Proper error messages and logging
+        - Token management: OAuth 2.0 token refresh logic, expiration handling
+        - Database security: Parameterized queries, secure connection handling
+    
+    - path: "src/app/api/webhook/route.ts"
+      instructions: |
+        Check webhook signature verification, OAuth 2.0 token refresh mechanism, expiration handling, secure token storage, and proper error handling. Verify media upload security and tweet posting logic.
+        
+        Focus areas:
+        - Security: Webhook signature verification, secure token handling
+        - Token management: OAuth 2.0 token refresh logic, expiration handling
+        - Error handling: Comprehensive error handling for webhook processing
+        - API design: Proper HTTP status codes, request/response validation
+    
+    - path: "src/app/api/**/*.ts"
+      instructions: |
+        General API route review: Verify RESTful API design, proper HTTP status codes, request/response validation, environment variable security and usage, TypeScript type safety, and Next.js best practices.
+        
+        Focus areas:
+        - API design: RESTful API routes, proper HTTP status codes
+        - Security: Environment variable security and usage
+        - TypeScript: Type safety, proper typing, avoiding any types
+        - Next.js: Proper use of Next.js API routes and best practices
+

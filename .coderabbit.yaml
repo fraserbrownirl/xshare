@@ -1,70 +1,24 @@
 # CodeRabbit Configuration for FC2X Project
 # See: https://docs.coderabbit.ai/configure/configuration-via-yaml-file/
+# Best practice: Version-controlled configuration in repository root
 
-language: typescript
-
-# Review settings
-reviews:
-  # Automatically review pull requests
-  auto_review: true
-  
-  # Review depth - comprehensive for security-critical OAuth code
-  review_depth: comprehensive
-  
-  # Focus areas for this project
-  focus_areas:
-    - security
-    - performance
-    - best_practices
-    - error_handling
-    - api_design
-
-# Path filters - focus on source code
-paths:
-  include:
-    - "src/**/*.ts"
-    - "src/**/*.tsx"
-  exclude:
-    - "node_modules/**"
-    - ".next/**"
-    - "farcaster-examples/**"
-    - "**/*.test.ts"
-    - "**/*.spec.ts"
-
-# API route specific settings
-api_routes:
-  # Review API routes with extra security focus
-  security_focus: true
-  # Check for proper error handling
-  error_handling: true
-  # Validate OAuth flows
-  oauth_validation: true
-
-# Security settings (important for OAuth 2.0 implementation)
-security:
-  # Check for common security issues
-  enabled: true
-  # Focus on authentication/authorization code
-  auth_focus: true
-
-# Suggestions and improvements
-suggestions:
-  # Provide code improvement suggestions
-  enabled: true
-  # Focus on TypeScript best practices
-  typescript_best_practices: true
-  # Suggest Next.js optimizations
-  nextjs_optimizations: true
-
-# Review instructions specific to this project
+# Review instructions - CodeRabbit will follow these guidelines
 review_instructions: |
-  This project implements OAuth 2.0 PKCE flow for Twitter/X authentication.
+  This project implements OAuth 2.0 PKCE flow for Twitter/X authentication in a Next.js TypeScript application.
+  
+  Focus areas:
+  - Security: Proper PKCE implementation (code verifier/challenge), secure token storage and handling, webhook signature verification
+  - Error handling: Comprehensive error handling in authentication flows, proper error messages and logging
+  - Database security: SQL injection prevention using parameterized queries, secure connection handling
+  - Token management: OAuth 2.0 token refresh logic, expiration handling, secure storage
+  - API design: RESTful API routes, proper HTTP status codes, request/response validation
+  - TypeScript: Type safety, proper typing, avoiding any types
+  - Next.js: Proper use of Next.js API routes, server components, and best practices
+  
   Pay special attention to:
-  - Proper PKCE implementation (code verifier/challenge)
-  - Secure token storage and handling
-  - Error handling in authentication flows
-  - Webhook security and signature verification
-  - Database query security (SQL injection prevention)
-  - Token refresh logic
-  - Environment variable usage and security
+  - OAuth 2.0 PKCE flow correctness in src/app/api/auth/route.ts
+  - Token exchange and validation in src/app/api/callback/route.ts
+  - Webhook security and token refresh in src/app/api/webhook/route.ts
+  - Environment variable security and usage
+  - Database query parameterization to prevent SQL injection
 

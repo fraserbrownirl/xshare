@@ -22,8 +22,8 @@ Then, copy `.env.example` to a new `.env.local` file and add the necessary envir
 | `NEXT_PUBLIC_NEYNAR_CLIENT_ID` and `NEYNAR_API_KEY`       | Your Neynar Client ID and API Key can be found on the [Neynar Dev Portal](https://dev.neynar.com) on the page for your app(make sure to create an app if you haven't already).  |
 | `NEYNAR_WEBHOOK_ID` and `NEYNAR_WEBHOOK_SECRET`            | Go to the [Neynar Dev Portal](https://dev.neynar.com) and create a webhook where the target URL is `${YOUR_PROD_URL}/api/webhook`. Then grab the webhook's ID and set it as your `NEYNAR_WEBHOOK_ID` value, as well the webhook's secret value for `NEYNAR_WEBHOOK_SECRET`. |
 | `POSTGRES_URL`              | The connection URL for your Postgres DB. To create all of the tables necessary for this project, run the SQL query in `Initial Migration.md`. |
-| `TWITTER_CALLBACK_URL`              | The callback URL for Twitter authentication. Set this value to `${YOUR_PROD_URL}/api/callback`, and make sure to set this on the [Twitter/X Developer Portal](https://developer.x.com/en/portal) as well. For local development, also add `http://localhost:3001/api/callback` (or your dev port) to the callback URLs in Twitter Developer Portal. |
-| `TWITTER_CLIENT_ID` and `TWITTER_CLIENT_SECRET`  | The OAuth 2.0 Client ID and Client Secret for your Twitter app, which you find (or create) on the [Twitter/X Developer Portal](https://developer.x.com/en/portal). Make sure your app is configured as "Web App, Automated App or Bot" with "Read and write" permissions. |
+| `TWITTER_CALLBACK_URL`              | The callback URL for Twitter authentication. Set this value to `${YOUR_PROD_URL}/api/callback`, and make sure to set this on the [Twitter/X Developer Portal](https://developer.x.com/en/portal) as well. |
+| `TWITTER_CONSUMER_KEY` and `TWITTER_CONSUMER_SECRET`  | The API Key and API Key Secret for your Twitter app, which you find(or create) on the [Twitter/X Developer Portal](https://developer.x.com/en/portal). |
 
 ### 3. Run the development server
 
